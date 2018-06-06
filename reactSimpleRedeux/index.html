@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<!--
+    NOTE:
+        This isn't how you'd typically use React,
+        just a root example of how it works.
+-->
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Component 1</title>
+        <script type="text/javascript" src="https://unpkg.com/react@16.0.0-rc.2/umd/react.development.js"></script>
+        <script type="text/javascript" src="https://unpkg.com/react-dom@16.0.0-rc.2/umd/react-dom.development.js"></script>
+        <!--React DOM Factories Let's Us Create The Elements We Want-->
+        <script type="text/javascript" src="https://unpkg.com/react-dom-factories@1.0.0/index.js"></script>
+    </head>
+    <body>
+        <div id="app"></div>
+        <script type="text/javascript">
+            class Pet extends React.Component {
+                
+                render() {
+                    const h2 = ReactDOMFactories.h2(null, "Moxie");
+                    const img = ReactDOMFactories.img({
+                        src: "https://github.com/tigarcia/Moxie/raw/master/moxie.png",
+                        alt: "Moxie, my cat"
+                    });
+                    
+                    return ReactDOMFactories.div(null, h2, img);
+                }
+            }
+            
+            // We have to tell the client WHERE to render our component
+            ReactDOM.render(React.createElement(Pet), document.getElementById("app"));
+        
+        </script>
+    </body>
+</html>

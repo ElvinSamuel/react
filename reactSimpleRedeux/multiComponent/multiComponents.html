@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<!--
+    NOTE:
+        This isn't how you'd typically use React,
+        just a root example of how it works.
+-->
+
+<!--
+    NOTE (NEW):
+    Babel can't tell the difference between a JavaScript class
+    and an HTML class, so for the <div> we use a keyword 'className'
+    to indicate that it's HTML, not JavaScript.
+    
+-->
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Component 1</title>
+        
+        <!--CSS Time-->
+        <link rel="stylesheet" href="./first-component.css" type="text/css" />
+        
+        <script type="text/javascript" src="https://unpkg.com/react@16.0.0-rc.2/umd/react.development.js"></script>
+        <script type="text/javascript" src="https://unpkg.com/react-dom@16.0.0-rc.2/umd/react-dom.development.js"></script>
+        <!--No longer need ReactDOMFactories, using BABEL now-->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+    </head>
+    <body>
+        <div id="app"></div>
+        
+        <!--
+            Changed the type to 'text/babel' now that we have a transpiler
+            In JSX, all tags must be closed. That's why I add the '/>' to the
+            img tag.
+        -->
+        <script type="text/babel">
+            
+            class HobbyList extends React.Component {
+                
+                render(){
+                    const hobbies = ["Sleeping", "Eating", "Cuddling"];
+                    const style = {fontSize: '1.5em'};
+                    
+                    return (
+                        <ul>
+                            {hobbies.map( (h, i) => {
+                                return <li key={i} style={style}>{h}</li>
+                            })}
+                        </ul>
+                    );
+                }
+            }
+        
+        
+            class Pet extends React.Component {
+                
+                render() {
+                    // Adding some styling
+                    const style = {fontSize: '1.5em'};
+                    
+                    /*New, simplified code*/
+                    return (
+                        <div className="card">
+                            <h2 className="name">Moxie</h2>
+                            <img src="https://github.com/tigarcia/Moxie/raw/master/moxie.png" 
+                                alt="Moxie, the cat" />
+                                
+                            <h5 style={{fontSize: '2em', margin: '2px'}}>Hobbies:</h5>
+                            
+                            {/* Now our add in our second component. */}
+                            <HobbyList />
+                        </div>
+                        );
+                }
+            }
+            
+            // We have to tell the client WHERE to render our component
+            // New Note: We removed the .createElement 
+            ReactDOM.render(<Pet />, document.getElementById("app"));
+        
+        </script>
+    </body>
+</html>

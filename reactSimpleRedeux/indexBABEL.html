@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<!--
+    NOTE:
+        This isn't how you'd typically use React,
+        just a root example of how it works.
+-->
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Component 1</title>
+        <script type="text/javascript" src="https://unpkg.com/react@16.0.0-rc.2/umd/react.development.js"></script>
+        <script type="text/javascript" src="https://unpkg.com/react-dom@16.0.0-rc.2/umd/react-dom.development.js"></script>
+    
+        <!--No longer need ReactDOMFactories, using BABEL now-->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+    </head>
+    <body>
+        <div id="app"></div>
+        
+        <!--
+            Changed the type to 'text/babel' now that we have a transpiler
+            In JSX, all tags must be closed. That's why I add the '/>' to the
+            img tag.
+        -->
+        <script type="text/babel">
+            class Pet extends React.Component {
+                
+                render() {
+                    
+                    /*New, simplified code*/
+                    return (
+                        <div>
+                            <h2>Moxie</h2>
+                            <img src="https://github.com/tigarcia/Moxie/raw/master/moxie.png" 
+                                alt="Moxie, the cat" />
+                        </div>
+                        );
+                    
+                    // Removed all the constants we originally had below. 
+                }
+            }
+            
+            // We have to tell the client WHERE to render our component
+            // New Note: We removed the .createElement 
+            ReactDOM.render(<Pet />, document.getElementById("app"));
+        
+        </script>
+    </body>
+</html>
