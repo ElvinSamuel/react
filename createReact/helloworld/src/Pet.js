@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import './Pet.css';
 
+import HobbyList from './HobbyList.js';
+
 // you could do 'export default class Pet extends Component...'
 class Pet extends Component {
 
     render() {
-        // Adding some styling
-        const style = { fontSize: '1.5em' };
 
         /*New, simplified code*/
         return (
@@ -18,6 +18,7 @@ class Pet extends Component {
                 <h5 style={{fontSize: '2em', margin: '2px'}}>Hobbies:</h5>
                 
                 {/* Now our add in our second component. */}
+                <HobbyList />
             </div>
         );
     }
