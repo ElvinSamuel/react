@@ -4,15 +4,16 @@ import './RecipeApp.css';
 // // Import our Recipe.js component
 // import Recipe from './Recipe';
 
-// Our RecipeList Component
 import RecipeList from './RecipeList';
+import Navbar from './Navbar';
 
 class RecipeApp extends Component {
-  
+
   render() {
     return (
       <div className="App">
-          <RecipeList/>
+        <Navbar />
+        <RecipeList/>
 	    </div>
     );
   }
